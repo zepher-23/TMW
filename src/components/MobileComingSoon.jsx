@@ -1,106 +1,100 @@
+"use client";
+
 import Image from "next/image";
 import brandLogo from "@/assets/logo/TeamMostWatedLogo-whitebg@1.5x.webp";
-import { Phone, Clock, MapPin, Laptop, MessageCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export function MobileComingSoon() {
   return (
-    <div className="flex min-h-[100dvh] flex-col justify-between bg-black text-white px-5 py-8 sm:px-8 selection:bg-primary selection:text-white">
-      {/* Top Bar with Logo */}
-      <header className="flex flex-col items-center text-center">
-        <div className="flex items-center justify-center rounded-2xl bg-white/95 p-3 shadow-md max-w-[200px]">
+    <div className="relative flex min-h-[100dvh] w-full flex-col items-center justify-center overflow-hidden bg-[#09090b] px-6 select-none">
+      {/* Background Subtle Aesthetic Animation */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Subtle breathing primary crimson aura */}
+        <div
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[110px]"
+          style={{
+            width: "320px",
+            height: "320px",
+            background:
+              "radial-gradient(circle, rgba(165, 34, 33, 0.45) 0%, rgba(61, 61, 68, 0.25) 55%, transparent 80%)",
+            animation: "ambientPulse 8s ease-in-out infinite",
+          }}
+        />
+
+        {/* Secondary subtle floating light */}
+        <div
+          className="absolute left-1/2 top-[45%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[90px]"
+          style={{
+            width: "200px",
+            height: "200px",
+            background:
+              "radial-gradient(circle, rgba(225, 29, 72, 0.22) 0%, transparent 70%)",
+            animation: "ambientFloat 11s ease-in-out infinite alternate",
+          }}
+        />
+
+        {/* Ultra-subtle background radial vignette */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, transparent 40%, rgba(5, 5, 7, 0.85) 100%)",
+          }}
+        />
+      </div>
+
+      {/* Minimal Center Content */}
+      <div className="relative z-10 flex flex-col items-center text-center">
+        {/* Brand Logo */}
+        <div className="mb-8 rounded-2xl bg-[#fffffd] px-6 py-3 shadow-[0_12px_40px_rgba(0,0,0,0.6)] ring-1 ring-white/10 transition-transform duration-700 ease-out hover:scale-105">
           <Image
             src={brandLogo}
             alt="Team Most Wanted"
-            width={180}
-            height={58}
-            className="h-10 w-auto object-contain"
+            width={160}
+            height={52}
+            className="h-9 w-auto object-contain"
             priority
           />
         </div>
-      </header>
 
-      {/* Main Content */}
-      <main className="my-auto flex flex-col items-center text-center py-8">
-        {/* Status Badge */}
-        <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary mb-6">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-primary"></span>
-          </span>
-          Mobile Experience Coming Soon
+        {/* Minimal Crimson Line + Coming Soon */}
+        <div className="flex items-center gap-3">
+          <div className="h-[1px] w-8 bg-gradient-to-r from-transparent to-[#a52221]" />
+          <p className="text-[11px] font-semibold tracking-[0.4em] uppercase text-neutral-300">
+            Coming Soon
+          </p>
+          <div className="h-[1px] w-8 bg-gradient-to-l from-transparent to-[#a52221]" />
         </div>
+      </div>
 
-        {/* Big Headline */}
-        <h1 className="text-3xl sm:text-4xl font-black tracking-tight leading-tight">
-          We&apos;re Tuning Up Our <br />
-          <span className="text-primary">Mobile Experience</span>
-        </h1>
-
-        {/* Subtitle */}
-        <p className="mt-4 max-w-sm text-sm sm:text-base text-neutral-300 leading-relaxed">
-          Our full interactive motorcycle workshop portal, instant cost calculator, and digital service booking are currently optimized for desktop and tablet screens.
-        </p>
-
-        {/* Desktop Recommendation Card */}
-        <div className="mt-6 flex items-center gap-3 rounded-2xl border border-neutral-800 bg-neutral-900/80 p-4 text-left max-w-sm w-full">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary">
-            <Laptop className="h-6 w-6" />
-          </div>
-          <div>
-            <h2 className="text-sm font-bold text-white">Visit from a Desktop or Tablet</h2>
-            <p className="text-xs text-neutral-400 mt-0.5">
-              To explore our full workshop portal, please open this website on a computer.
-            </p>
-          </div>
-        </div>
-
-        {/* Direct Action Buttons for Mobile Users */}
-        <div className="mt-6 flex flex-col w-full max-w-sm gap-3">
-          <a href="tel:+919876543210" className="w-full">
-            <Button
-              size="lg"
-              className="w-full h-12 text-sm font-bold bg-primary text-primary-foreground hover:bg-primary/90 flex items-center justify-center gap-2 rounded-xl"
-            >
-              <Phone className="h-4 w-4" />
-              Call Workshop (+91 98765 43210)
-            </Button>
-          </a>
-
-          <a
-            href="https://wa.me/919876543210?text=Hello%20Team%20Most%20Wanted%2C%20I%20would%20like%20to%20inquire%20about%20bike%20service."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full"
-          >
-            <Button
-              variant="outline"
-              size="lg"
-              className="w-full h-12 text-sm font-bold border-neutral-700 bg-neutral-900 text-white hover:bg-neutral-800 flex items-center justify-center gap-2 rounded-xl"
-            >
-              <MessageCircle className="h-4 w-4 text-[#25D366]" />
-              Chat on WhatsApp
-            </Button>
-          </a>
-        </div>
-
-        {/* Workshop Info */}
-        <div className="mt-8 flex flex-col gap-2 text-xs text-neutral-400">
-          <div className="flex items-center justify-center gap-1.5">
-            <Clock className="h-3.5 w-3.5 text-primary" />
-            <span>Mon – Sat: 8:30 AM – 8:00 PM</span>
-          </div>
-          <div className="flex items-center justify-center gap-1.5">
-            <MapPin className="h-3.5 w-3.5 text-primary" />
-            <span>Premier Two-Wheeler Workshop</span>
-          </div>
-        </div>
-      </main>
-
-      {/* Footer */}
-      <footer className="pt-4 text-center text-xs text-neutral-500 border-t border-neutral-900">
-        © {new Date().getFullYear()} Team Most Wanted. All rights reserved.
+      {/* Minimal Bottom Brand Mark */}
+      <footer className="absolute bottom-8 left-0 right-0 text-center">
+        <span className="text-[10px] font-medium tracking-[0.25em] uppercase text-neutral-600">
+          Team Most Wanted
+        </span>
       </footer>
+
+      {/* Keyframe Styles for Background Animation */}
+      <style jsx>{`
+        @keyframes ambientPulse {
+          0%,
+          100% {
+            transform: translate(-50%, -50%) scale(0.9);
+            opacity: 0.35;
+          }
+          50% {
+            transform: translate(-50%, -50%) scale(1.22);
+            opacity: 0.65;
+          }
+        }
+        @keyframes ambientFloat {
+          0% {
+            transform: translate(-50%, -50%) translateY(0);
+          }
+          100% {
+            transform: translate(-50%, -50%) translateY(-24px);
+          }
+        }
+      `}</style>
     </div>
   );
 }
