@@ -6,6 +6,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 import { ServiceInquiryForm } from "@/components/ServiceInquiryForm";
 import { CostCalculator } from "@/components/CostCalculator";
 import { ServiceProcessAnimation } from "@/components/ServiceProcessAnimation";
+import { MobileComingSoon } from "@/components/MobileComingSoon";
 import {
   Wrench,
   Gauge,
@@ -72,7 +73,14 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground transition-colors duration-200">
+    <>
+      {/* Mobile-Only Coming Soon View */}
+      <div className="block md:hidden">
+        <MobileComingSoon />
+      </div>
+
+      {/* Desktop & Tablet Full View */}
+      <div className="hidden md:flex min-h-screen flex-col bg-background text-foreground transition-colors duration-200">
       {/* Top Announcement Banner */}
       <div className="border-b border-border bg-foreground px-4 py-2.5 text-center text-sm font-semibold text-background">
         🏁 Welcome to Team Most Wanted Two Wheeler Service Center | Workshop Hotline: +91 98765 43210
@@ -431,5 +439,6 @@ export default function Home() {
         </svg>
       </a>
     </div>
+    </>
   );
 }
